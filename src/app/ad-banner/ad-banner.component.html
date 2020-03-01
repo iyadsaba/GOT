@@ -1,0 +1,6 @@
+
+
+<img *ngIf="ad.type ==='IMAGE'"    [src]="ad.creative.url" alt=""  [ngStyle]="{'left.px': ad.coordinates.x, 'top.px': ad.coordinates.y }" >
+<video #videoBanner  *ngIf="ad.type ==='VIDEO'" controls width="250" muted ="muted"  [ngStyle]="{'left.px': ad.coordinates.x, 'top.px': ad.coordinates.y}"  >
+      <source [src]="ad.creative.url">
+  </video>

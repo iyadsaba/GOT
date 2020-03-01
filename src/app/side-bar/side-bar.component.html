@@ -1,0 +1,17 @@
+<div>
+
+
+
+  <section class="top">
+    <input type="number" placeholder="Filter start">
+    <input type="number" placeholder="Filter end">
+
+  </section>
+  <section class="content">
+    <ul>
+      <li *ngFor="let ad of ads">
+        <app-ad [ad]="ad"></app-ad>
+      </li>
+    </ul>
+  </section>
+</div>

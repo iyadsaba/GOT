@@ -1,0 +1,19 @@
+    li {
+        list-style-type: none;
+        position: relative;
+        /* left: 100px; */
+        text-align: center;
+        font-weight: bold;
+        text-overflow: ellipsis;
+    }
+    ul {
+        left: 50px;
+        text-align: left;
+    }
+    input { 
+        margin: auto 10px;
+    }
+
+    .title { 
+        text-align: center;
+    }
