@@ -1,14 +1,12 @@
-export class AD { 
-    time : Date;
-    type : string;
-    lifeTime : number;
-    coordinates :{
-        x : number,
-        y : number
+export class AD {
+    time: Date;
+    type: string;
+    coordinates: {
+        x: number,
+        y: number
     };
-    creative: { 
+    creative: {
         name: string,
          url: string
         };
-   
 }

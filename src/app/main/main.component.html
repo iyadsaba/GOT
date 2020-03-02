@@ -1,6 +1,6 @@
 
     <div class="main" >
-      <app-side-bar class="center" [ads]="ads"></app-side-bar>
+      <app-side-bar (filtering)="setFilterData($event)" class="center" [ads]="isFilterApplied ?  filteredAds : ads"></app-side-bar>
       <app-map [ads]="ads"></app-map>
     </div>
   

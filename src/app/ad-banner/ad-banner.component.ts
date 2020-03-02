@@ -1,4 +1,4 @@
-import { Component, Input, OnInit,  OnDestroy, ViewChild } from '@angular/core';
+import { Component, Input, OnInit,  OnDestroy, ViewChild, AfterViewInit, AfterViewChecked } from '@angular/core';
 import { AD } from '../modules/ad';
 @Component({
   selector: 'app-ad-banner',
@@ -7,27 +7,31 @@ import { AD } from '../modules/ad';
 })
 
 
-export class AdBannerComponent implements OnInit, OnDestroy {
-  @Input() public ad:AD;
+export class AdBannerComponent implements OnInit, OnDestroy , AfterViewInit  {
+  @Input() public ad: AD;
 
-  @ViewChild('videoBanner') videoElement; 
+  @ViewChild('videoBanner') videoElement;
 
-
-  constructor() { }
+  public isVisible = true;
+  private lifeTime = 5000;
+  constructor() {
+   }
 
   ngOnInit() {
-
   }
-  ngAfterViewInit(){
-    this.videoElement && (this.videoElement.muted = "muted") && console.log(this.videoElement);
 
+  ngAfterViewInit() {
+    // tslint:disable-next-line:no-unused-expression
+    this.videoElement  && console.log(this.videoElement.nativeElement.muted = true);
+    // not good need to change this/
+    setTimeout(() => {
+      this.isVisible = false;
+    }, this.lifeTime);
   }
-  ngAfterViewChecked(){
 
-  }
 
   ngOnDestroy() {
-    
+
   }
 
 

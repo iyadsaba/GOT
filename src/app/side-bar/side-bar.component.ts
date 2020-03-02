@@ -1,4 +1,6 @@
-import { Component, OnInit, Input  } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, EventEmitter, Output  } from '@angular/core';
+import {AD} from '../modules/ad';
+
 
 @Component({
   selector: 'app-side-bar',
@@ -7,17 +9,24 @@ import { Component, OnInit, Input  } from '@angular/core';
 })
 export class SideBarComponent implements OnInit {
 
-  @Input() ads: any[] ;
+  @Input() ads: AD[] ;
+  @Output() filtering = new EventEmitter();
+  @ViewChild('start') start;
+  @ViewChild('end') end;
 
-  constructor( ) { 
-    }
+  constructor( ) {     }
 
   ngOnInit(): void {
+    console.log('side-bar', this.ads);
 
   }
 
-
-
-  
-
+  getValues() {
+    const filter = {
+      start : this.start.nativeElement.value,
+      end : this.end.nativeElement.value
+    };
+    this.filtering.emit(filter);
+    console.log('getValuesInvoked');
+  }
 }

@@ -1,5 +1,5 @@
 .content {
-        overflow-y: auto;
+        /* overflow-y: auto; */
         height: 800px;
         width: 1299px;
         position: relative;

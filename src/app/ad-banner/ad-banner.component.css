@@ -3,5 +3,6 @@ img , video {
     height: 100px;
     width: 100px;
     z-index: 22222;
+    border: 5px solid white;
 }
 

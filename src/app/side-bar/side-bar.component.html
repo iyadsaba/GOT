@@ -3,10 +3,11 @@
 
 
   <section class="top">
-    <input type="number" placeholder="Filter start">
-    <input type="number" placeholder="Filter end">
-
+    <input #start type="number" placeholder="Filter start">
+    <input #end type="number" placeholder="Filter end">
+    <button (click)="getValues()">Click</button>
   </section>
+  
   <section class="content">
     <ul>
       <li *ngFor="let ad of ads">

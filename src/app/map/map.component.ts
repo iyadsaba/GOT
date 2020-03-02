@@ -1,4 +1,6 @@
 import { Component, OnInit, Input,  } from '@angular/core';
+import {AD} from '../modules/ad';
+
 
 
 @Component({
@@ -8,12 +10,12 @@ import { Component, OnInit, Input,  } from '@angular/core';
 })
 export class MapComponent implements OnInit {
 
-  @Input() ads = [];
+  @Input() ads: AD[];
 
   constructor() { }
 
   ngOnInit(): void {
-  
+
   }
 
 
