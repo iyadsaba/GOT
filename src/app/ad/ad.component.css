@@ -4,3 +4,13 @@ p{
     font-size: larger;
 
 }
+img.type {
+    position: relative;
+    margin-left: 2px;
+    left: -2px;
+    top: 4px;
+}
+
+img { 
+    width: 20px;
+}

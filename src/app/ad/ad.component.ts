@@ -24,13 +24,5 @@ export class AdComponent implements OnInit  {
     };
     return dic[this.ad.type];
   }
-  prettyDate() {
-    return this.ad.time.toLocaleTimeString(navigator.language, {
-      hour: '2-digit',
-      minute : '2-digit',
-      second : '2-digit'
-    });
-  }
-
 
 }
