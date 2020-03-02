@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, ViewChild, EventEmitter, Output  } from '@angular/core';
+
 import {AD} from '../modules/ad';
 
 
@@ -10,23 +11,35 @@ import {AD} from '../modules/ad';
 export class SideBarComponent implements OnInit {
 
   @Input() ads: AD[] ;
+  @Input() isFilterApplied = false;
+
   @Output() filtering = new EventEmitter();
   @ViewChild('start') start;
   @ViewChild('end') end;
+  sendDataWithDebounce;
+  filter = {
+    start : null,
+    end: null
+  };
 
   constructor( ) {     }
 
   ngOnInit(): void {
-    console.log('side-bar', this.ads);
-
+    this.sendDataWithDebounce = this.__debounce(this.getValues, 500);
   }
-
-  getValues() {
-    const filter = {
-      start : this.start.nativeElement.value,
-      end : this.end.nativeElement.value
+  __debounce(fn , wait: number) {
+    let timeout;
+    return function() {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        fn.apply(this, arguments);
+      }, wait);
     };
-    this.filtering.emit(filter);
-    console.log('getValuesInvoked');
   }
+  getValues() {
+    this.filter.start =  this.start.nativeElement.value;
+    this.filter.end = this.end.nativeElement.value;
+    this.filtering.emit(this.filter);
+  }
+
 }

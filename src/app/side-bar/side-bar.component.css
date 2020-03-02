@@ -1,25 +1,47 @@
     li {
-        list-style-type: none;
-        position: relative;
-       
-    }
-    ul {
-        left: 50px;
-        text-align: left;
-    }
-    input { 
-        margin: auto 10px;
+      list-style-type: none;
+      position: relative;
+
     }
 
-    .title { 
-        text-align: center;
+    ul {
+      left: 50px;
+      text-align: left;
     }
+
+    input {
+      margin: auto 10px;
+      width : 100px;
+    }
+
+    /* .title {
+      text-align: center;
+    } */
 
     .content {
-        overflow-y: auto;
-    border: 3px solid gray;
-    height: 600px;
-    margin-top: 20px;
-    margin-left: 20px;
-    box-sizing: content-box;
+      overflow-y: auto;
+      height: 600px;
+      margin-top: 20px;
+      margin-left: 20px;
+      padding: 6px;
+    padding: 10px 10px;
+    margin: -12px auto 21px auto;
     }
+
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+.top {
+  padding: 10px 10px;
+  margin: -10px  auto 0px auto;
+
+}
+
+.subject { 
+  text-align: center;
+  font-family: 'Rasa';
+  display: contents;
+  color: cadetblue;
+}

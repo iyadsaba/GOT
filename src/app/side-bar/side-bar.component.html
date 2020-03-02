@@ -3,11 +3,16 @@
 
 
   <section class="top">
-    <input #start type="number" placeholder="Filter start">
-    <input #end type="number" placeholder="Filter end">
-    <button (click)="getValues()">Click</button>
+      <input id="start" name="start" [ngModel]="filter.start" #start type="number" placeholder="Filter start"
+        (input)="sendDataWithDebounce()" >
+      <input id="end" name="end" [ngModel]="filter.end" #end type="number" placeholder="Filter end"
+        (input)="sendDataWithDebounce()">
+        <h4 *ngIf="isFilterApplied" class="subject"> Filter Applied </h4>
+
   </section>
-  
+
+
+
   <section class="content">
     <ul>
       <li *ngFor="let ad of ads">

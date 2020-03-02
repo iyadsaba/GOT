@@ -25,3 +25,7 @@ app-ad-banner {
         width: 150px;
         bottom: 0;
 }
+
+.hide { 
+        display: none;
+}

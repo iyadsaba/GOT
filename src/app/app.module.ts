@@ -7,9 +7,9 @@ import { MapComponent } from './map/map.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { AdComponent } from './ad/ad.component';
 import { MainComponent } from './main/main.component';
-import {AdStreamService} from './ad-stream.service';
-import { AdBannerComponent } from './ad-banner/ad-banner.component'
+import { AdBannerComponent } from './ad-banner/ad-banner.component';
 
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -23,9 +23,10 @@ import { AdBannerComponent } from './ad-banner/ad-banner.component'
   ],
   imports: [
     BrowserModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    FormsModule
   ],
-  providers: [AdStreamService ],
+  providers: [ ],
   bootstrap: [AppComponent],
   entryComponents: [ AdComponent  ],
 

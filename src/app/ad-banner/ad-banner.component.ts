@@ -1,4 +1,4 @@
-import { Component, Input, OnInit,  OnDestroy, ViewChild, AfterViewInit, AfterViewChecked } from '@angular/core';
+import { Component, Input, OnInit,  OnDestroy, ViewChild, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { AD } from '../modules/ad';
 @Component({
   selector: 'app-ad-banner',
@@ -13,25 +13,29 @@ export class AdBannerComponent implements OnInit, OnDestroy , AfterViewInit  {
   @ViewChild('videoBanner') videoElement;
 
   public isVisible = true;
-  private lifeTime = 5000;
-  constructor() {
+  constructor(private cdRef: ChangeDetectorRef) {
    }
 
   ngOnInit() {
+    this.cdRef.detectChanges();
+    console.log('cdRef', this.cdRef);
+
   }
 
   ngAfterViewInit() {
     // tslint:disable-next-line:no-unused-expression
-    this.videoElement  && console.log(this.videoElement.nativeElement.muted = true);
-    // not good need to change this/
+    this.videoElement  && (this.videoElement.nativeElement.muted = true);
+    // not the best way/
     setTimeout(() => {
       this.isVisible = false;
-    }, this.lifeTime);
+    // tslint:disable-next-line:no-string-literal
+      this.cdRef['_cdRefInjectingView'][0].setAttribute('style', 'display:none;');
+    }, this.ad.lifeTime);
   }
 
 
   ngOnDestroy() {
-
+    this.cdRef.detach();
   }
 
 

@@ -20,11 +20,12 @@ export class MainComponent implements OnInit, OnDestroy  {
 
   ngOnInit(): void {
      this.listenerOpts = adDispatcher.registerToAdEvents((data) => {
-      const ad: AD = { ...data, time: new Date() };
+      const ad: AD = { ...data, time: new Date(), lifeTime: 5000 };
       console.log('main', ad);
       this.ads.unshift(ad);
+      this.cdRef.detectChanges();
+
     });
-     this.cdRef.detectChanges();
    }
 
 
@@ -33,14 +34,17 @@ export class MainComponent implements OnInit, OnDestroy  {
     this.cdRef.detach();
   }
 
-  setFilterData($event: any) {
-    console.log($event);
+  applyFilter($event: any) {
     this.filteredAds = this.ads.filter((ad: AD , i: number) => {
-            const unixDate = Math.round(ad.time.getTime() / 1000);
+            const unixDate = getUnixDate(ad.time);
             console.log(i, unixDate);
             return  ((unixDate >= $event.start) && (unixDate <= $event.end));
     });
+
+    function getUnixDate(date: Date) {
+      return Math.round(date.getTime() / 1000);
+    }
     console.log(this.filteredAds);
     this.isFilterApplied = !!this.filteredAds.length;
-      }
+    }
 }
