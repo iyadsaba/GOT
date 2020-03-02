@@ -19,8 +19,8 @@ export class AdComponent implements OnInit  {
   }
   getImgSrc() {
     const dic = {
-      IMAGE : '../../assets/icons/ic_image_black_24px.svg',
-      VIDEO : '../../assets/icons/ic_movie_creation_black_24px.svg'
+      IMAGE : 'assets/icons/ic_image_black_24px.svg',
+      VIDEO : 'assets/icons/ic_movie_creation_black_24px.svg'
     };
     return dic[this.ad.type];
   }
