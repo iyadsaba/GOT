@@ -44,7 +44,6 @@ export class MainComponent implements OnInit, OnDestroy  {
     function getUnixDate(date: Date) {
       return Math.round(date.getTime() / 1000);
     }
-    console.log(this.filteredAds);
     this.isFilterApplied = !!this.filteredAds.length;
     }
 }
